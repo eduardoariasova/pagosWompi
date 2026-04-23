@@ -19,7 +19,7 @@ router.route("/obtener-configa")
         //console.log("precio obtenido: ", precio);
         
 
-        const urlRetorno   = "https://eduardoarias.co/retorno-wompi"; 
+        const urlRetorno   = "https://app-wompi-prueba-fca2ed8ef38d.herokuapp.com/retorno-wompi"; 
         const moneda       = "COP";
         const centavos     = Math.round(precio * 100);
         
@@ -47,5 +47,21 @@ router.route("/obtener-configa")
     }
 });
 
+
+router.route("/retorno-wompi")
+.post(async function(req, res){
+    try{
+        const evento = req.body || {};
+        const tipoEvento = (evento?.event || '').toString().trim();
+        const transaccion = evento?.data?.transaction || null;
+        console.log("evento recibido: ", evento);
+
+
+        res.status(200).json({mensaje: "recibido"});
+    }
+    catch(error){
+        console.log("error :", error);
+    }
+});
 
 module.exports = router;
