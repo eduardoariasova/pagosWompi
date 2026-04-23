@@ -19,11 +19,11 @@ router.route("/obtener-configa")
         //console.log("precio obtenido: ", precio);
         
 
-        const urlRetorno   = "https://app-wompi-prueba-fca2ed8ef38d.herokuapp.com/retorno-wompi"; 
+        const urlRetorno   = "https://app-wompi-prueba-fca2ed8ef38d.herokuapp.com/retorno-wompi"; // callback. 
         const moneda       = "COP";
         const centavos     = Math.round(precio * 100);
         
-        const referencia   = "id_eduardo"; // decirle a wompi quien ejecuto el pago. 
+        const referencia = `id_eduardo_${Date.now()}`; // decirle a wompi quien ejecuto el pago. 
 
         const integritySignature = crypto
         .createHash('sha256') // crear hash usando algoritmo sha-256
@@ -48,7 +48,9 @@ router.route("/obtener-configa")
 });
 
 
-router.route("/retorno-wompi")
+
+// WEBHOOK: poner en wompi
+router.route("/webhook-wompi")
 .post(async function(req, res){
     try{
         const evento = req.body || {};

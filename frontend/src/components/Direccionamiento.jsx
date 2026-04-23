@@ -5,6 +5,7 @@ import HeaderGlobal from "./partials/headerGlobal";
 import FooterGlobal from "./partials/footerGlobal";
 // paginas GLOGAL
 import Home from "./paginas/home";
+import Retorno from "./paginas/retorno";
 
 
 
@@ -33,6 +34,7 @@ function Direccionamiento(){
             {/* Rutas Global */}
             <Route path="/" element={<PlantillaGlobal />}>
                 <Route index element={<Home />}/>
+                <Route path="/retorno-wompi" element={<Retorno />}/>
             </Route>
         </Routes>
     );   

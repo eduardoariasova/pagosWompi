@@ -15,7 +15,7 @@ function WidgetWompi({wompiConfig, mostrarEstado = true, alCargar, alError }){
 
     const normalizar = useMemo(() => {
         if(!wompiConfig) return null;
-        console.log("entro");
+        console.log("wompiconfig: ", wompiConfig);
         return{
             amountInCents: wompiConfig.amountInCents,
             currency: wompiConfig.currency || "COP",
