@@ -59,6 +59,8 @@ router.route("/webhook-wompi")
         console.log("evento recibido: ", evento);
 
 
+        // EJECUTAR MODIFICACIONES A MI BASE DE DATOS.
+
         res.status(200).json({mensaje: "recibido"});
     }
     catch(error){
